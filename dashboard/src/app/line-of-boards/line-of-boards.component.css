@@ -43,5 +43,7 @@ hr{
 }
 
 .board p{
+  word-wrap: break-word;
+  background-color: blue;
   width:100%;
 }
