@@ -1,5 +1,4 @@
 *{
-  font-family: 'Raleway', sans-serif;
   color:white;
 }
 .add-component{
@@ -29,7 +28,7 @@
 }
 .board{
   width:200px;
-  height:200px;
+  min-height:200px;
   background-color: #afcab7;
   text-align: center;
   display:flex;

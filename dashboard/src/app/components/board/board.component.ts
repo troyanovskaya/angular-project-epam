@@ -9,6 +9,18 @@ import { Board } from '../../models/board.model'
 })
 export class BoardComponent implements OnInit {
   @Input() board:Board
+  description = false;
+  descriptionText='Show description';
+
+  changeButtonState(){
+    this.description = !this.description;
+    if(this.descriptionText === 'Show description'){
+      this.descriptionText = 'Hide description';
+    } else{
+      this.descriptionText = 'Show description';
+    }
+
+  }
 
   constructor() { }
 
