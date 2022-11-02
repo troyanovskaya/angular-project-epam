@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Board } from '../../models/board.model'
 
 @Component({
   selector: 'app-line-of-boards',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class LineOfBoardsComponent implements OnInit {
   boardName='';
   boardDescription='';
-  boards:{name:string, date:string, description:string}[] = [{'name':'Cheese project', 'date': '29-10-2022', 'description':'Project abot different types of cheese'},
+  boards:Board[] = [{'name':'Cheese project', 'date': '29-10-2022', 'description':'Project abot different types of cheese'},
   {'name':'Haribo', 'date': '29-10-2022', 'description':'Project about yammy candies'},
   {'name':'English channel', 'date': '19-10-2022', 'description':'project on the field of transportation through channel'},
   {'name':'Comb', 'date': '29-09-2022', 'description':'Project about comb'},
