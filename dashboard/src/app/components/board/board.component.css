@@ -1,0 +1,10 @@
+div{
+  width:200px;
+}
+div > *{
+  width:100%;
+  word-wrap: break-word;
+}
+hr{
+  color:white
+}

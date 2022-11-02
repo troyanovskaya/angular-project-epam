@@ -8,6 +8,7 @@ import { LineOfButtonsComponent } from './components/line-of-buttons/line-of-but
 import { LineOfBoardsComponent } from './components/line-of-boards/line-of-boards.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { BoardComponent } from './components/board/board.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     TopLineComponent,
     LineOfButtonsComponent,
     LineOfBoardsComponent,
-    FooterComponent
+    FooterComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,
