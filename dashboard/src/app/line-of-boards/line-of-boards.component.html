@@ -1,0 +1,10 @@
+<div class="flex-container">
+  <div class="add-component">
+    <input type="text" placeholder="Name" [(ngModel)]="boardName" [ngStyle]="{color:'black'}">
+    <textarea rows="4" placeholder="Description" [(ngModel)]="boardDescription" [ngStyle]="{color:'black'}"></textarea>
+    <div [ngStyle]="{backgroundColor:'#60a77b', padding:'10px', borderRadius:'10px'}" (click)="addBoard()"> Add new board </div>
+  </div>
+  <div class="board" *ngFor="let board of boards"><h4>{{board.name}} <hr></h4>
+  <p>{{board.date}}</p>
+<p>{{board.description}}</p></div>
+</div>

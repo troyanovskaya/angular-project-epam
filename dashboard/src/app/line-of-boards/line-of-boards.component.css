@@ -1,0 +1,47 @@
+*{
+  font-family: 'Raleway', sans-serif;
+  color:white;
+}
+.add-component{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width:200px;
+  height:200px;
+  gap:10px;
+  background-color: #afcab7;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.flex-container{
+  margin: 50px;
+  display:flex;
+  flex-direction: row;
+  gap:20px;
+  align-items: center;
+  flex-wrap:wrap;
+}
+.add-component p{
+  text-align: center;
+  font-size: 4em;
+  margin:0px;
+}
+.board{
+  width:200px;
+  height:200px;
+  background-color: #afcab7;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+hr{
+  color:white;
+}
+
+.board p{
+  width:100%;
+}

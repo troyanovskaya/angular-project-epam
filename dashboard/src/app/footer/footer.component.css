@@ -1,0 +1,27 @@
+.footer-container{
+  width:100%;
+  background-color: #1f4c3a;
+  height:150px;
+  margin:0px;
+  padding:0px;
+  color:white;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.leaf{
+  background-color: #60a77b;
+  width: 25px;
+  height:25px;
+}
+
+.leaf-1{
+  border-radius: 25px 0px;
+}
+
+.leaf-2{
+  border-radius: 0px 25px;
+}
