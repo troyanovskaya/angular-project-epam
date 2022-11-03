@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-top-line',
   templateUrl: './top-line.component.html',
@@ -9,7 +10,8 @@ export class TopLineComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  async ngOnInit(){
+
   }
 
 }
