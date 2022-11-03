@@ -9,7 +9,7 @@ import { DbAccessService } from '../../services/db-access.service';
   styleUrls: ['./line-of-boards.component.css']
 })
 export class LineOfBoardsComponent implements OnInit {
-  form = new FormGroup({name: new FormControl<string>('', [
+  form: FormGroup = new FormGroup({name: new FormControl<string>('', [
     Validators.required,
     Validators.minLength(5)
   ]),
@@ -30,16 +30,11 @@ export class LineOfBoardsComponent implements OnInit {
   boardName='';
   boardDescription='';
   @Input() keyword:string='';
-  // _boards:Board[] = [{'name':'Cheese project', 'date': '29-10-2022', 'description':'Project abot different types of cheese'},
-  // {'name':'Haribo', 'date': '29-10-2022', 'description':'Project about yammy candies'},
-  // {'name':'English channel', 'date': '19-10-2022', 'description':'project on the field of transportation through channel'},
-  // {'name':'Comb', 'date': '29-09-2022', 'description':'Project about comb'},
-  // {'name':'Rick and his dog', 'date': '19-09-2022', 'description':'Project about Rick`s animals'},
-  // {'name':'Three leaves', 'date': '29-10-2021', 'description':'Flora of West region of England'}];
   addBoard(){
-    //this.boards.push({name: this.boardName, date: this.getProperDate(), description:this.boardDescription})
-    console.log(this.form.value);
-    // this.boards.push({name: 'QQQQQ', date: this.getProperDate()})
+    this.db.postBoard({"name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value}).subscribe(res => 1,
+        err => console.log('Error Occured ' + err));
+    this.db.getBoards().subscribe(res => {this.boards=res},
+        err => console.log('Error Occured ' + err));
   }
   getProperDate():string{
     let d = new Date();
@@ -49,9 +44,8 @@ export class LineOfBoardsComponent implements OnInit {
 
   constructor(private db:DbAccessService){}
   ngOnInit(): void {
-    this.db.getBoards().subscribe(res => {this.boards=res;
-    console.log(res)},
-      err => console.log('Error Occured ' + err))
+    this.db.getBoards().subscribe(res => {this.boards=res},
+      err => console.log('Error Occured ' + err));
   }
 
 }

@@ -11,4 +11,7 @@ export class DbAccessService {
   getBoards(){
     return this.http.get<Board[]>(this.url)
   }
+  postBoard(board: Board){
+    return this.http.post<Board>(this.url, board)
+  }
 }
