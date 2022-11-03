@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Board } from '../../models/board.model'
 
 @Component({
@@ -9,6 +9,7 @@ import { Board } from '../../models/board.model'
 export class LineOfBoardsComponent implements OnInit {
   boardName='';
   boardDescription='';
+  @Input() keyword:string='';
   boards:Board[] = [{'name':'Cheese project', 'date': '29-10-2022', 'description':'Project abot different types of cheese'},
   {'name':'Haribo', 'date': '29-10-2022', 'description':'Project about yammy candies'},
   {'name':'English channel', 'date': '19-10-2022', 'description':'project on the field of transportation through channel'},

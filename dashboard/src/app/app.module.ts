@@ -9,6 +9,7 @@ import { LineOfBoardsComponent } from './components/line-of-boards/line-of-board
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { BoardComponent } from './components/board/board.component';
+import { FilterBoardsPipe } from './pipes/filter-boards.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BoardComponent } from './components/board/board.component';
     LineOfButtonsComponent,
     LineOfBoardsComponent,
     FooterComponent,
-    BoardComponent
+    BoardComponent,
+    FilterBoardsPipe
   ],
   imports: [
     BrowserModule,
