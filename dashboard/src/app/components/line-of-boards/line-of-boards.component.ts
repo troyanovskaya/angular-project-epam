@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Board } from '../../models/board.model'
 
 @Component({
@@ -7,6 +8,24 @@ import { Board } from '../../models/board.model'
   styleUrls: ['./line-of-boards.component.css']
 })
 export class LineOfBoardsComponent implements OnInit {
+  form = new FormGroup({name: new FormControl<string>('', [
+    Validators.required,
+    Validators.minLength(5)
+  ]),
+  description: new FormControl<string>('', [
+    Validators.required,
+    Validators.minLength(5)
+  ])})
+
+  get name(){
+    return this.form.controls.name as FormControl;
+  }
+
+  get description(){
+    return this.form.controls.description as FormControl;
+  }
+
+
   boardName='';
   boardDescription='';
   @Input() keyword:string='';
@@ -17,9 +36,9 @@ export class LineOfBoardsComponent implements OnInit {
   {'name':'Rick and his dog', 'date': '19-09-2022', 'description':'Project about Rick`s animals'},
   {'name':'Three leaves', 'date': '29-10-2021', 'description':'Flora of West region of England'}];
   addBoard(){
-    this.boards.push({name: this.boardName, date: this.getProperDate(), description:this.boardDescription})
+    //this.boards.push({name: this.boardName, date: this.getProperDate(), description:this.boardDescription})
+    console.log(this.form.value);
     // this.boards.push({name: 'QQQQQ', date: this.getProperDate()})
-
   }
   getProperDate():string{
     let d = new Date();
