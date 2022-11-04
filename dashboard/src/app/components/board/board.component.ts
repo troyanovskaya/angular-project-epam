@@ -9,6 +9,7 @@ import { Board } from '../../models/board.model'
 })
 export class BoardComponent implements OnInit {
   @Input() board:Board
+  @Input() i:number
   description = false;
   descriptionText='Show description';
 

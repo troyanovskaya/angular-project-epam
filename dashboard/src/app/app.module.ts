@@ -14,12 +14,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { FullBoardInformationComponent } from './components/full-board-information/full-board-information.component';
 
 const appRoutes:Routes = [{
-  path: '', component: LineOfBoardsComponent, outlet: 'board-line'
+  path: '', component: LineOfBoardsComponent
 }
-// ,
-// {
-//   path: 'boards', component: FullBoardInformationComponent, outlet: 'full-board'
-// }
+,
+{
+  path: 'boards/:id', component: FullBoardInformationComponent
+}
 ]
 
 @NgModule({
