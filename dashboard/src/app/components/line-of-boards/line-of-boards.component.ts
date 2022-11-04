@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { KeywordService } from 'src/app/services/keyword.service';
 import { Board } from '../../models/board.model';
 import { DbAccessService } from '../../services/db-access.service';
 
@@ -29,7 +30,6 @@ export class LineOfBoardsComponent implements OnInit {
   boards: Board[] = [];
   boardName='';
   boardDescription='';
-  @Input() keyword:string='';
   addBoard(){
     this.db.postBoard({"name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value}).subscribe(res => 1,
         err => console.log('Error Occured ' + err));
@@ -42,7 +42,8 @@ export class LineOfBoardsComponent implements OnInit {
     return datestring;
   }
 
-  constructor(private db:DbAccessService){}
+  constructor(private db:DbAccessService, public keyService:KeywordService){}
+
   ngOnInit(): void {
     this.db.getBoards().subscribe(res => {this.boards=res},
       err => console.log('Error Occured ' + err));

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Board } from 'src/app/models/board.model';
+import { KeywordService } from 'src/app/services/keyword.service';
 
 @Component({
   selector: 'app-line-of-buttons',
@@ -9,14 +10,10 @@ import { Board } from 'src/app/models/board.model';
 export class LineOfButtonsComponent {
   buttonNames = ['Show oldest projects', 'Show recent projects'];
   inputName = '';
-  @Output() emitter:EventEmitter<string>
-  = new EventEmitter<string>();
+  constructor(private keyService:KeywordService) { }
 
-  constructor() { }
-
-
-  emit(keyword: string){
-    this.emitter.emit(keyword);
+  emit(){
+    this.keyService.key = this.inputName;
   }
 
 }

@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopLineComponent } from './components/top-line/top-line.component';
 import { LineOfButtonsComponent } from './components/line-of-buttons/line-of-buttons.component';
 import { LineOfBoardsComponent } from './components/line-of-boards/line-of-boards.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BoardComponent } from './components/board/board.component';
 import { FilterBoardsPipe } from './pipes/filter-boards.pipe';
-import { ReactiveFormsModule } from '@angular/forms'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes:Routes = [{
+  path: '', component: LineOfBoardsComponent, outlet: 'board-line'
+}]
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http'
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
