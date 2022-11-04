@@ -31,7 +31,7 @@ export class LineOfBoardsComponent implements OnInit {
   boardName='';
   boardDescription='';
   addBoard(){
-    this.db.postBoard({"name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value}).subscribe(res => 1,
+    this.db.postBoard({"name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value, todo:[], progress:[], done:[]}).subscribe(res => 1,
         err => console.log('Error Occured ' + err));
     this.db.getBoards().subscribe(res => {this.boards=res},
         err => console.log('Error Occured ' + err));

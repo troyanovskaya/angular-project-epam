@@ -4,43 +4,64 @@
       "id": 1,
       "name": "Cheese project1",
       "date": "19-10-2022",
-      "description": "Project about different types of cheese"
+      "description": "Project about different types of cheese",
+      "todo":["Option1", "Option2", "Option3", "Option4"],
+      "progress":["Option1", "Option2", "Option3", "Option4"],
+      "done":["Option1", "Option2", "Option3", "Option4"]
     },
     {
       "id": 2,
       "name": "Cheese project2",
       "date": "29-9-2022",
-      "description": "Project about different types of cheese"
+      "description": "Project about different types of cheese",
+      "todo":["Option1", "Option2", "Option3", "Option4"],
+      "progress":["Option1", "Option2", "Option3", "Option4"],
+      "done":["Option1", "Option2", "Option3", "Option4"]
     },
     {
       "id": 3,
       "name": "Cheese project3",
       "date": "29-8-2022",
-      "description": "Project about different types of cheese"
+      "description": "Project about different types of cheese",
+      "todo":["Option1", "Option2", "Option3", "Option4"],
+      "progress":["Option1", "Option2", "Option3", "Option4"],
+      "done":["Option1", "Option2", "Option3", "Option4"]
     },
     {
       "id": 4,
       "name": "Cheese project4",
       "date": "29-7-2022",
-      "description": "Project about different types of cheese"
+      "description": "Project about different types of cheese",
+      "todo":["Option1", "Option2", "Option3", "Option4"],
+      "progress":["Option1", "Option2", "Option3", "Option4"],
+      "done":["Option1", "Option2", "Option3", "Option4"]
     },
     {
       "id": 5,
       "name": "Cheese project5",
       "date": "29-6-2022",
-      "description": "Project about different types of cheese"
+      "description": "Project about different types of cheese",
+      "todo":["Option1", "Option2", "Option3", "Option4"],
+      "progress":["Option1", "Option2", "Option3", "Option4"],
+      "done":["Option1", "Option2", "Option3", "Option4"]
     },
     {
       "id": 6,
       "name": "Cheese project6",
       "date": "29-5-2022",
-      "description": "Project abot different types of cheese"
+      "description": "Project abot different types of cheese",
+      "todo":["Option1", "Option2", "Option3", "Option4"],
+      "progress":["Option1", "Option2", "Option3", "Option4"],
+      "done":["Option1", "Option2", "Option3", "Option4"]
     },
     {
       "id": 7,
       "name": "Cheese project7",
       "date": "29-4-2022",
-      "description": "Project abot different types of cheese"
+      "description": "Project abot different types of cheese",
+      "todo":["Option1", "Option2", "Option3", "Option4"],
+      "progress":["Option1", "Option2", "Option3", "Option4"],
+      "done":["Option1", "Option2", "Option3", "Option4"]
     }
   ]
 }

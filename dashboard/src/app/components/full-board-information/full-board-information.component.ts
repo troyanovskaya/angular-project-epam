@@ -17,7 +17,6 @@ export class FullBoardInformationComponent implements OnInit {
   //   "progress":["Update project", "Fix project"],
   //   "done": ["Create project"]
   // }
-  arr=[1, 2, 3, 4];
   id:number = 0;
 
   constructor(private route: ActivatedRoute, private db:DbAccessService) { }
@@ -28,10 +27,8 @@ export class FullBoardInformationComponent implements OnInit {
       this.id = params.id;
     }
     );
-    this.db.getBoards().subscribe(res => {this.boards=res;
-    console.log(this.boards[this.id-1])},
+    this.db.getBoards().subscribe(res => {this.boards=res},
       err => console.log('Error Occured ' + err));
-    console.log(this.boards);
   }
 
 }
