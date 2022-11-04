@@ -1,0 +1,13 @@
+<div class="flex-container">
+  <div class="item"><h2>To do</h2>
+  <div class="do"><b>Add note</b> </div>
+  <div class="do" *ngFor="let do of board.todo">{{do}}</div>
+</div>
+  <div class="item"><h2>In progress</h2>
+    <div class="do"><b>Add note</b></div>
+    <div class="do" *ngFor="let prog of board.progress">{{prog}}</div></div>
+  <div class="item"><h2>Done</h2>
+    <div class="do"><b>Add note</b></div>
+    <div class="do" *ngFor="let dn of board.done">{{dn}}</div>
+  </div>
+</div>

@@ -11,10 +11,16 @@ import { BoardComponent } from './components/board/board.component';
 import { FilterBoardsPipe } from './pipes/filter-boards.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import { FullBoardInformationComponent } from './components/full-board-information/full-board-information.component';
 
 const appRoutes:Routes = [{
   path: '', component: LineOfBoardsComponent, outlet: 'board-line'
-}]
+}
+// ,
+// {
+//   path: 'boards', component: FullBoardInformationComponent, outlet: 'full-board'
+// }
+]
 
 @NgModule({
   declarations: [
@@ -24,7 +30,8 @@ const appRoutes:Routes = [{
     LineOfBoardsComponent,
     FooterComponent,
     BoardComponent,
-    FilterBoardsPipe
+    FilterBoardsPipe,
+    FullBoardInformationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,28 @@
+.flex-container{
+  text-align:center;
+  margin: 50px;
+  display:flex;
+  flex-direction: row;
+  gap:20px;
+  justify-content: center;
+  color:white;
+}
+
+.item{
+  min-height:200px;
+  width:30%;
+  background-color: #afcab7;
+}
+
+.do{
+  border:1px solid white;
+  min-height:50px;
+  align-self: middle;
+  line-height: 50px;
+}
+
+b{
+  background-color: #60a77b;
+  border-radius: 5px;
+  font-size: 1.2em;
+}
