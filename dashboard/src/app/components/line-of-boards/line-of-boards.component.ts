@@ -31,10 +31,11 @@ export class LineOfBoardsComponent implements OnInit {
   boardName='';
   boardDescription='';
   addBoard(){
-    this.db.postBoard({"name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value, todo:[], progress:[], done:[]}).subscribe(res => 1,
+    this.db.postBoard({"name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value, todo:[], progress:[], done:[]}).subscribe(res =>
+      this.db.getBoards().subscribe(res => {this.boards=res},
+        err => console.log('Error Occured ' + err)),
         err => console.log('Error Occured ' + err));
-    this.db.getBoards().subscribe(res => {this.boards=res},
-        err => console.log('Error Occured ' + err));
+    this.form.reset();
   }
   getProperDate():string{
     let d = new Date();
