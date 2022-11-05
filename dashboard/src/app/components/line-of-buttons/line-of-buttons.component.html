@@ -2,5 +2,5 @@
   <p>Dashboard</p>
   <input (keyup)="emit();" id="input-name" [(ngModel)]="inputName" >
   <button (click)="sortASC()">Show oldest projects</button>
-  <button >Show recent projects</button>
+  <button (click)="sortDSC()" >Show recent projects</button>
 </div>

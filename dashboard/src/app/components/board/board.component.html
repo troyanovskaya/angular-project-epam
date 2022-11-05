@@ -1,8 +1,8 @@
 <div>
-  <h4 routerLink="/boards/{{board.id}}">{{board.name | titlecase}} <hr></h4>
-  <p>{{board.date}}</p>
+  <h4 routerLink="/boards/{{board.id}}">{{db.boards[i-1].name | titlecase}} <hr></h4>
+  <p>{{db.boards[i-1].date}}</p>
   <button [ngClass]="{'darkBtn': description}" (click)="changeButtonState()" >{{descriptionText}}</button>
   <div *ngIf="description">
-    <p>{{board.description}}</p>
+    <p>{{db.boards[i-1].description}}</p>
   </div>
 </div>
