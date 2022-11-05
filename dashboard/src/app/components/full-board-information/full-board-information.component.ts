@@ -9,11 +9,9 @@ import { DbAccessService } from 'src/app/services/db-access.service';
   styleUrls: ['./full-board-information.component.css']
 })
 export class FullBoardInformationComponent implements OnInit {
-  boards:Board[] = [];
-
   id:number = 0;
 
-  constructor(private route: ActivatedRoute, private db:DbAccessService) { }
+  constructor(private route: ActivatedRoute, public db:DbAccessService) { }
 
   ngOnInit(): void {
     this.route.params
@@ -21,8 +19,6 @@ export class FullBoardInformationComponent implements OnInit {
       this.id = params.id;
     }
     );
-    this.db.getBoards().subscribe(res => {this.boards=res},
-      err => console.log('Error Occured ' + err));
   }
 
 }

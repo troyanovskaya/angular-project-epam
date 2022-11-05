@@ -1,5 +1,6 @@
 <div class="flex-container">
   <p>Dashboard</p>
   <input (keyup)="emit();" id="input-name" [(ngModel)]="inputName" >
-  <button *ngFor="let btn of buttonNames" >{{btn}}</button>
+  <button (click)="sortASC()">Show oldest projects</button>
+  <button >Show recent projects</button>
 </div>

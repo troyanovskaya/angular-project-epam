@@ -5,13 +5,22 @@ import { Board } from '../models/board.model'
 @Injectable({
   providedIn: 'root'
 })
-export class DbAccessService {
+export class DbAccessService{
   url: string = 'http://localhost:3000/Boards  '
-  constructor(private http: HttpClient) { }
+  boards:Board[] = [];
+  constructor(private http: HttpClient) {
+    this.getBoards().subscribe(res => {this.boards=res},
+      err => console.log('Error Occured ' + err));
+  }
   getBoards(){
     return this.http.get<Board[]>(this.url)
   }
   postBoard(board: Board){
     return this.http.post<Board>(this.url, board)
   }
+  assignValue(){
+    this.getBoards().subscribe(res => {this.boards=res},
+      err => console.log('Error Occured ' + err));
+  }
+
 }

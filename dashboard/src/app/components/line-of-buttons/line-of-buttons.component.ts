@@ -11,7 +11,9 @@ export class LineOfButtonsComponent {
   buttonNames = ['Show oldest projects', 'Show recent projects'];
   inputName = '';
   constructor(private keyService:KeywordService) { }
+  sortASC(){
 
+  }
   emit(){
     this.keyService.key = this.inputName;
   }

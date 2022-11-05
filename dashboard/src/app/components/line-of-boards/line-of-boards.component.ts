@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { KeywordService } from 'src/app/services/keyword.service';
 import { Board } from '../../models/board.model';
@@ -9,7 +9,7 @@ import { DbAccessService } from '../../services/db-access.service';
   templateUrl: './line-of-boards.component.html',
   styleUrls: ['./line-of-boards.component.css']
 })
-export class LineOfBoardsComponent implements OnInit {
+export class LineOfBoardsComponent implements OnInit{
   form: FormGroup = new FormGroup({name: new FormControl<string>('', [
     Validators.required,
     Validators.minLength(5)
@@ -27,18 +27,17 @@ export class LineOfBoardsComponent implements OnInit {
     return this.form.controls.description as FormControl;
   }
 
-  boards: Board[] = [];
   boardName='';
   boardDescription='';
   sortASC(){
     // this.boards.sort(el => )
   }
   addBoard(){
-    this.db.postBoard({"id": this.boards.length, "name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value, todo:[], progress:[], done:[]}).subscribe(res =>
-      this.db.getBoards().subscribe(res => {this.boards=res},
-        err => console.log('Error Occured ' + err)),
+    this.db.postBoard({"id": this.db.boards.length+1, "name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value, todo:[], progress:[], done:[]}).subscribe
+    (res => this.db.assignValue(),
         err => console.log('Error Occured ' + err));
     this.form.reset();
+
   }
   getProperDate():string{
     let d = new Date();
@@ -46,11 +45,15 @@ export class LineOfBoardsComponent implements OnInit {
     return datestring;
   }
 
-  constructor(private db:DbAccessService, public keyService:KeywordService){}
+  constructor(public db:DbAccessService, public keyService:KeywordService){
+  }
 
   ngOnInit(): void {
-    this.db.getBoards().subscribe(res => {this.boards=res},
-      err => console.log('Error Occured ' + err));
   }
+
+  // q(){
+  //   console.log(this.db.boards);
+  //   console.log(this.boards);
+  // }
 
 }

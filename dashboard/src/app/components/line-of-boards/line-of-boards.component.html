@@ -8,5 +8,6 @@
       <button>Add new board</button>
     </form>
   </div>
-  <div class="board" *ngFor="let board of boards | filterBoards:keyService.key"> <app-board [board]="board"></app-board></div>
+  <div class="board" *ngFor="let board of db.boards | filterBoards:keyService.key"> <app-board [board]="board"></app-board></div>
 </div>
+<!-- <button (click)="q()">QQQQ</button> -->
