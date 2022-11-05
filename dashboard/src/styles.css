@@ -2,3 +2,14 @@ body{
   margin: 0px;
   font-family: 'Raleway', sans-serif;
 }
+
+button, .add{
+  transition: transform .5s;
+}
+
+button:hover, .add:hover{
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px 0 white, 0 6px 20px 0 white;
+  box-shadow: 0 4px 8px 0 rgba(30, 30, 30, 0.2), 0 6px 20px 0 rgba(23, 23, 23, 0.19);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
