@@ -40,8 +40,20 @@ export class LineOfBoardsComponent implements OnInit{
 
   }
   getProperDate():string{
+    let day, month;
     let d = new Date();
-    let datestring = d.getDate()  + '-' + (d.getMonth()+1) + '-' + d.getFullYear();
+    if(d.getDate()<10){
+      day='0'+d.getDate();
+    }else{
+      day = d.getDate();
+    }
+    if(d.getMonth()+1<10){
+      let a = d.getMonth()+1
+      month = '0'+ a;
+    }else{
+      month = d.getMonth()+1;
+    }
+    let datestring = day  + '-' + month + '-' + d.getFullYear();
     return datestring;
   }
 
