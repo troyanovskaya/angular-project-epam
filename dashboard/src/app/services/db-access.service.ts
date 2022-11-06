@@ -9,8 +9,7 @@ export class DbAccessService{
   url: string = 'http://localhost:3000/Boards'
   boards:Board[] = [];
   constructor(private http: HttpClient) {
-    this.getBoards().subscribe(res => {this.boards=res},
-      err => console.log('Error Occured ' + err));
+    this.getBoards().subscribe(res => {this.boards=res});
   }
   getBoards(){
     return this.http.get<Board[]>(this.url)
@@ -19,15 +18,15 @@ export class DbAccessService{
     return this.http.get<Board>(`${this.url}/${id}`)
   }
   postBoard(board: Board){
-    return this.http.post<Board>(this.url, board)
+    return this.http.post<Board>(this.url, board);
   }
   assignValue(){
-    this.getBoards().subscribe(res => {this.boards=res},
-      err => console.log('Error Occured ' + err));
+    this.getBoards().subscribe(res => {this.boards=res});
   }
   addNote(id:number, board:Board){
+    let b;
     let url=this.url+'/'+id;
-    this.http.put(url, board).subscribe(data => console.log(data));;
-    console.log(url);
+    this.http.put(url, board).subscribe(data => b=data);;
+    return b;
   }
 }

@@ -21,6 +21,10 @@
   line-height: 50px;
 }
 
+.do textarea{
+  margin-top:20px;
+}
+
 b{
   background-color: #60a77b;
   border-radius: 5px;
