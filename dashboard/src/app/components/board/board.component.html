@@ -1,5 +1,5 @@
 <div>
-  <h4 routerLink="/boards/{{board.id}}">{{db.boards[i-1].name | titlecase}} <hr></h4>
+  <h4 routerLink="/boards/{{db.boards[i-1].id}}">{{db.boards[i-1].name | titlecase}} <hr></h4>
   <p>{{db.boards[i-1].date}}</p>
   <button [ngClass]="{'darkBtn': description}" (click)="changeButtonState()" >{{descriptionText}}</button>
   <div *ngIf="description">
