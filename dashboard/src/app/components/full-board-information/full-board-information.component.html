@@ -1,13 +1,13 @@
 <div class="flex-container">
   <div class="item"><h2>To do</h2>
-  <div class="do add"><b>Add note</b> </div>
+  <div class="do add" (click)="db.boards[id-1].todo.push('Love'); db.addNote(id, db.boards[id-1])"><b>Add note</b> </div>
   <div class="do" *ngFor="let do of db.boards[id-1].todo">{{do}}</div>
 </div>
   <div class="item"><h2>In progress</h2>
-    <div class="do add"><b>Add note</b></div>
+    <div class="do add" (click)="db.boards[id-1].progress.push('Love'); db.addNote(id, db.boards[id-1])"><b>Add note</b></div>
     <div class="do" *ngFor="let prog of db.boards[id-1].progress">{{prog}}</div></div>
   <div class="item"><h2>Done</h2>
-    <div class="do add"><b>Add note</b></div>
+    <div class="do add" (click)="db.boards[id-1].done.push('Love'); db.addNote(id, db.boards[id-1])"><b>Add note</b></div>
     <div class="do" *ngFor="let dn of db.boards[id-1].done">{{dn}}</div>
   </div>
 </div>
