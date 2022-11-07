@@ -14,7 +14,7 @@ export class FullBoardInformationComponent implements OnInit {
   isVisibleForm2:boolean = false;
   isVisibleForm3:boolean = false;
   id:number = 0;
-  board:Board;
+  board:Board={id:0, name:'', description:'', date:'', todo:[], progress:[], done:[]};
   form1: FormGroup = new FormGroup({noteToDo: new FormControl<string>('', [
     Validators.required
   ])});
@@ -57,7 +57,6 @@ export class FullBoardInformationComponent implements OnInit {
       this.db.getBoard(this.id).subscribe(res => this.board=res);
     }
     );
-
   }
 
 }

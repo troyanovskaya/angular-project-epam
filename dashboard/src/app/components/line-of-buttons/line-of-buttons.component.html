@@ -1,6 +1,14 @@
 <div class="flex-container">
   <p>Dashboard</p>
   <input (keyup)="emit();" id="input-name" [(ngModel)]="inputName" >
-  <button (click)="sortASC()">Show oldest projects</button>
-  <button (click)="sortDSC()" >Show recent projects</button>
+  <div class="relative-position m-l-10"> <p class="sort-p sort-options" (click)="downDropHidden=!downDropHidden">Sort options</p>
+    <p class="sort-p">{{sort | uppercase}}</p>
+    <div *ngIf="!downDropHidden" class="flex-column-container">
+      <div class="flex-column-item" *ngFor="let name of optionNames" (click)="passOption(name)">{{name}}</div>
+    </div>
+  </div>
+  <button [ngClass]="{'darkBtn': buttonChoose1}" (click)="push1()">ASC</button>
+  <button [ngClass]="{'darkBtn': buttonChoose2}" (click)="push2()">DESC</button>
 </div>
+
+
