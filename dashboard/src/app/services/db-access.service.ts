@@ -29,4 +29,7 @@ export class DbAccessService{
     this.http.put(url, board).subscribe(data => b=data);;
     return b;
   }
+  deleteBoard(id:number){
+    return this.http.delete<Board>(`${this.url}/${id}`);
+  }
 }

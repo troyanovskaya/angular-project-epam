@@ -1,4 +1,5 @@
 <div>
+  <div class="icon-container"><img (click)="deleteBoard()" class="icon" height="20" width="20" src="assets/delete.png" alt="Delete icon"/></div>
   <h4 routerLink="/boards/{{db.boards[i].id}}">{{db.boards[i].name | titlecase}} <hr></h4>
   <p>{{db.boards[i].date}}</p>
   <button [ngClass]="{'darkBtn': description}" (click)="changeButtonState()" >{{descriptionText}}</button>

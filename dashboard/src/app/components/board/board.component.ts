@@ -13,8 +13,7 @@ export class BoardComponent implements OnInit {
   @Input() i:any
   description = false;
   descriptionText='Show description';
-  constructor(public db:DbAccessService){
-  }
+  constructor(public db:DbAccessService){}
 
   changeButtonState(){
 
@@ -25,6 +24,11 @@ export class BoardComponent implements OnInit {
       this.descriptionText = 'Show description';
     }
 
+  }
+
+  deleteBoard(){
+    this.db.deleteBoard(this.db.boards[this.i].id).subscribe(res => res);
+    this.db.boards = this.db.boards.filter(el => el.id!=this.db.boards[this.i].id);
   }
 
   ngOnInit(): void {

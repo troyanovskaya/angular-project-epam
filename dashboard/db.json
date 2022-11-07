@@ -1,31 +1,6 @@
 {
   "Boards": [
     {
-      "id": 1,
-      "name": "Cheese project1",
-      "date": "29-05-2022",
-      "description": "Project about different types of cheese",
-      "todo": [
-        "Option1",
-        "Option2",
-        "Option3",
-        "Option4",
-        "Love"
-      ],
-      "progress": [
-        "Option1",
-        "Option2",
-        "Option3",
-        "Option4"
-      ],
-      "done": [
-        "Option1",
-        "Option2",
-        "Option3",
-        "Option4"
-      ]
-    },
-    {
       "id": 2,
       "name": "Cheese project2",
       "date": "29-05-2022",
@@ -102,30 +77,6 @@
       ]
     },
     {
-      "id": 5,
-      "name": "Cheese project5",
-      "date": "29-06-2022",
-      "description": "Project about different types of cheese",
-      "todo": [
-        "Option1",
-        "Option2",
-        "Option3",
-        "Option4"
-      ],
-      "progress": [
-        "Option1",
-        "Option2",
-        "Option3",
-        "Option4"
-      ],
-      "done": [
-        "Option1",
-        "Option2",
-        "Option3",
-        "Option4"
-      ]
-    },
-    {
       "id": 6,
       "name": "Cheese project6",
       "date": "29-05-2022",
@@ -174,13 +125,13 @@
       ]
     },
     {
-      "id": 8,
       "name": "angular",
       "date": "05-11-2022",
       "description": "Project",
       "todo": [],
       "progress": [],
-      "done": []
+      "done": [],
+      "id": 8
     },
     {
       "id": 9,
@@ -211,15 +162,6 @@
       "name": "dfghjkl",
       "date": "05-11-2022",
       "description": "dfghjkl",
-      "todo": [],
-      "progress": [],
-      "done": []
-    },
-    {
-      "id": 12,
-      "name": "fghjkl;'",
-      "date": "05-11-2022",
-      "description": "dfghjkl;'",
       "todo": [],
       "progress": [],
       "done": []
