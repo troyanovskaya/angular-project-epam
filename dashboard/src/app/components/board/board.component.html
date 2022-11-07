@@ -2,6 +2,9 @@
   <div class="icon-container"><img (click)="deleteBoard()" class="icon" height="20" width="20" src="assets/delete.png" alt="Delete icon"/></div>
   <h4 routerLink="/boards/{{db.boards[i].id}}">{{db.boards[i].name | titlecase}} <hr></h4>
   <p>{{db.boards[i].date}}</p>
+  <p>Todo tasks: {{db.boards[i].todo.length}}</p>
+  <p>In progress tasks: {{db.boards[i].progress.length}}</p>
+  <p>Done tasks: {{db.boards[i].done.length}}</p>
   <button [ngClass]="{'darkBtn': description}" (click)="changeButtonState()" >{{descriptionText}}</button>
   <div *ngIf="description">
     <p>{{db.boards[i].description}}</p>
