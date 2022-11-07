@@ -124,18 +124,27 @@ export class LineOfButtonsComponent {
     this.downDropHidden = true;
   }
   push1(){
-    this.buttonChoose1=!this.buttonChoose1;
-    if(this.buttonChoose2 && this.buttonChoose1){
-      this.buttonChoose2 = false;
+    if(!this.db.disableWhileEditing){
+      this.buttonChoose1=!this.buttonChoose1;
+      if(this.buttonChoose2 && this.buttonChoose1){
+        this.buttonChoose2 = false;
+      }
+      this.passOption(this.sort);
     }
-    this.passOption(this.sort);
   }
 
   push2(){
-    this.buttonChoose2=!this.buttonChoose2;
-    if(this.buttonChoose1 && this.buttonChoose2){
-      this.buttonChoose1 = false;
+    if(!this.db.disableWhileEditing){
+      this.buttonChoose2=!this.buttonChoose2;
+      if(this.buttonChoose1 && this.buttonChoose2){
+        this.buttonChoose1 = false;
+      }
+      this.passOption(this.sort);
     }
-    this.passOption(this.sort);
+  }
+  clickDropDown(){
+    if(!this.db.disableWhileEditing){
+      this.downDropHidden=!this.downDropHidden
+    }
   }
 }

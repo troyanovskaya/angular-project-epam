@@ -40,6 +40,12 @@ h4:hover{
   transition: .2s;
 }
 
+input{
+  padding:5px;
+  margin:5px;
+}
+
 .icon:hover{
   transform: scale(1.1);
 }
+

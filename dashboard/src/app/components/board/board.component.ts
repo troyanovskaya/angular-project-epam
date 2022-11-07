@@ -14,6 +14,8 @@ export class BoardComponent implements OnInit {
   description = false;
   descriptionText='Show description';
   constructor(public db:DbAccessService){}
+  inputVisible:boolean = false;
+  inputName = '';
 
   changeButtonState(){
 
@@ -31,7 +33,22 @@ export class BoardComponent implements OnInit {
     this.db.boards = this.db.boards.filter(el => el.id!=this.db.boards[this.i].id);
   }
 
+  editBoard(){
+    this.db.disableWhileEditing = true;
+    this.inputName = this.db.boards[this.i].name;
+    this.inputVisible = true;
+  }
+
   ngOnInit(): void {
+  }
+
+  sendNewName(){
+    this.db.disableWhileEditing = false;
+    this.inputVisible = !this.inputVisible;
+    console.log(this.inputName);
+    this.db.boards[this.i].name = this.inputName;
+    this.db.changeBoard(this.db.boards[this.i].id, this.db.boards[this.i]);
+
   }
 
 }

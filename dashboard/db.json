@@ -2,7 +2,7 @@
   "Boards": [
     {
       "id": 2,
-      "name": "Cheese project2",
+      "name": "Cheese is cool",
       "date": "29-05-2022",
       "description": "Project about different types of cheese",
       "todo": [
@@ -36,7 +36,8 @@
         "Option1",
         "Option2",
         "Option3",
-        "Option4"
+        "Option4",
+        "Love"
       ],
       "progress": [
         "Option1",
@@ -53,7 +54,7 @@
     },
     {
       "id": 4,
-      "name": "Cheese project4",
+      "name": "Cheese project6",
       "date": "29-07-2002",
       "description": "Project about different types of cheese",
       "todo": [
@@ -162,15 +163,6 @@
       "name": "dfghjkl",
       "date": "05-11-2022",
       "description": "dfghjkl",
-      "todo": [],
-      "progress": [],
-      "done": []
-    },
-    {
-      "id": 13,
-      "name": "апрол",
-      "date": "05-11-2022",
-      "description": "апролд",
       "todo": [],
       "progress": [],
       "done": []
