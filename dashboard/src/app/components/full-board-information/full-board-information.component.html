@@ -28,6 +28,7 @@
     <div class="do" *ngIf="isVisibleForm3"><form [formGroup]="form3" (keyup.enter)="sendDone()"><textarea formControlName="noteDone" cols="25" rows="3"></textarea></form></div>
     <div class="do" cdkDrag *ngFor="let dn of board.done">{{dn}}
       <div class="small-flex-container">
+        <img class="icon" height="20" width="20" src="assets/check.png" alt="Check icon"/>
       <img (click)="deleteNote(3, dn)" class="icon" height="20" width="20" src="assets/delete.png" alt="Delete icon"/>
     </div></div>
   </div>
