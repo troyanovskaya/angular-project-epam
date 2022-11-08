@@ -24,8 +24,8 @@
 }
 
 .do textarea{
-  width:100%;
-  margin-top:20px;
+  width:80%;
+  margin-bottom: 7px;
 }
 
 b{
@@ -72,3 +72,4 @@ b{
 .icon:hover{
   transform: scale(1.1);
 }
+

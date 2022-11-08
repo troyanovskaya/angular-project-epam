@@ -96,6 +96,23 @@ export class FullBoardInformationComponent implements OnInit {
       //this.db.deleteBoard(this.db.boards[this.i].id).subscribe(res => res);
       //this.db.boards = this.db.boards.filter(el => el.id!=this.db.boards[this.i].id);
     }
+    edit = 'Finall'
+    pushEdited(event, i: number, listNumber:number){
+      let text = event.target.innerText;
+      text = text.trim();
+      switch(listNumber){
+        case 1:
+          this.board.todo[i] = text;
+          break;
+        case 2:
+          this.board.progress[i] = text;
+          break;
+        case 3:
+          this.board.done[i] = text;
+      }
+      this.db.changeBoard(this.id, this.board);
+      console.log(text);
+    }
  }
 
 

@@ -72,6 +72,15 @@ input{
   background-color: #1f4c3a;
 }
 
+.dash{
+  transition: .5s;
+}
+
+.dash:hover{
+
+  text-decoration: underline 1px;
+}
+
 
 
 

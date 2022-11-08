@@ -1,6 +1,5 @@
 <div class="flex-container">
-  <!-- <a href=""></a> -->
-  <p routerLink="/">Dashboard</p>
+  <p class="dash" routerLink="/">Dashboard</p>
   <input (keyup)="emit();" id="input-name" [(ngModel)]="inputName" >
   <div class="relative-position m-l-10"> <p class="sort-p sort-options" (click)="clickDropDown()">Sort options</p>
     <p class="sort-p">{{sort | uppercase}}</p>
