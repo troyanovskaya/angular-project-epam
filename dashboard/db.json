@@ -6,21 +6,18 @@
       "date": "29-05-2022",
       "description": "Project about different types of cheese",
       "todo": [
-        "Option1",
         "Option2",
         "Option3",
         "Option4",
         "Love"
       ],
       "progress": [
-        "Option1",
         "Option2",
         "Option3",
-        "Option4",
-        "Love"
+        "Love",
+        "Option4"
       ],
       "done": [
-        "Option1",
         "Option2",
         "Option3",
         "Option4",
@@ -34,14 +31,13 @@
       "description": "Project about different types of cheese",
       "todo": [
         "Option1",
-        "Option2",
         "Option3",
         "Option4",
-        "Love"
+        "Love",
+        "dfghj fghjkl; ghj ghjv dk;i  xcv hgdfyh kugv"
       ],
       "progress": [
         "Option1",
-        "Option2",
         "Option3",
         "Option4",
         "cheeese"
@@ -50,7 +46,8 @@
         "Option1",
         "Option2",
         "Option3",
-        "Option4"
+        "Option4",
+        "dfghjjhffghjkkhgfghjkkjhgvghjkjhgvbhjklkjhgvbjklkjhbjklkjhbjklkjhbklkjhbklkjnklkjbkl"
       ]
     },
     {
@@ -59,20 +56,15 @@
       "date": "29-07-2002",
       "description": "Project about different types of cheese",
       "todo": [
-        "Option1",
+        "Homework",
         "Option2",
         "Option3",
         "Option4"
       ],
       "progress": [
-        "Option1",
-        "Option2",
-        "Option4",
-        "Option1"
+        "Option4"
       ],
       "done": [
-        "Homework",
-        "Option2",
         "Option4",
         "Option3",
         "Option3"

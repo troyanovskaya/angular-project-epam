@@ -18,10 +18,13 @@
   border:1px solid white;
   min-height:50px;
   align-self: middle;
-  line-height: 50px;
+  width:100%;
+  word-wrap: break-word;
+  padding-top: 10px;
 }
 
 .do textarea{
+  width:100%;
   margin-top:20px;
 }
 
@@ -51,4 +54,21 @@ b{
 .row{
   display:flex;
   flex-direction: row;
+}
+
+.small-flex-container{
+  display:flex;
+  flex-direction:row;
+  justify-content: flex-end;
+  padding:10px;
+}
+
+.icon{
+  margin-top:10px;
+  margin-right:10px;
+  transition: .2s;
+}
+
+.icon:hover{
+  transform: scale(1.1);
 }
