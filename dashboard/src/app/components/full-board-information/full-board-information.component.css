@@ -47,3 +47,8 @@ b{
   text-align: center;
   border-radius: 10px;
 }
+
+.row{
+  display:flex;
+  flex-direction: row;
+}

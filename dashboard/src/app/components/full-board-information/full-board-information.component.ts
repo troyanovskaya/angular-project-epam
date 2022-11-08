@@ -3,6 +3,9 @@ import { Board } from '../../models/board.model';
 import { ActivatedRoute } from '@angular/router';
 import { DbAccessService } from 'src/app/services/db-access.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from
+'@angular/cdk/drag-drop'
+
 
 @Component({
   selector: 'app-full-board-information',
@@ -30,21 +33,21 @@ export class FullBoardInformationComponent implements OnInit {
   sendToDo(){
     if(this.form1.controls.noteToDo.value.trim().length !== 0){
       this.board.todo.push(this.form1.controls.noteToDo.value.slice(0, -1));
-      this.db.addNote(this.id, this.board);
+      this.db.changeBoard(this.id, this.board);
       this.form1.reset();
     }
   }
   sendProgress(){
     if(this.form2.controls.noteProgress.value.trim().length !== 0){
       this.board.progress.push(this.form2.controls.noteProgress.value.slice(0, -1));
-      this.db.addNote(this.id, this.board);
+      this.db.changeBoard(this.id, this.board);
       this.form2.reset();
     }
   }
   sendDone(){
     if(this.form3.controls.noteDone.value.trim().length !== 0){
       this.board.done.push(this.form3.controls.noteDone.value.slice(0, -1));
-      this.db.addNote(this.id, this.board);
+      this.db.changeBoard(this.id, this.board);
       this.form3.reset();
     }
   }
@@ -59,4 +62,24 @@ export class FullBoardInformationComponent implements OnInit {
     );
   }
 
-}
+ drop(event: CdkDragDrop<string[]>, listNumber: number) {
+    if (event.previousContainer !== event.container) {
+    transferArrayItem(event.previousContainer.data,event.container.data,
+    event.previousIndex, event.currentIndex)
+    } else {
+      switch (listNumber){
+        case 1:
+          moveItemInArray(this.board.todo, event.previousIndex, event.currentIndex);
+          break;
+        case 2:
+          moveItemInArray(this.board.progress, event.previousIndex, event.currentIndex);
+          break;
+        case 3:
+          moveItemInArray(this.board.done, event.previousIndex, event.currentIndex);
+      }
+      }
+      this.db.changeBoard(this.board.id, this.board);
+    }
+ }
+
+

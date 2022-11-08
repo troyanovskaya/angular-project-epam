@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { DragDropModule} from '@angular/cdk/drag-drop';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,7 +40,8 @@ const appRoutes:Routes = [{
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

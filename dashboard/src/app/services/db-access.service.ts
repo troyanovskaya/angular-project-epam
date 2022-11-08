@@ -24,12 +24,12 @@ export class DbAccessService{
   assignValue(){
     this.getBoards().subscribe(res => {this.boards=res});
   }
-  addNote(id:number, board:Board){
-    let b;
-    let url=this.url+'/'+id;
-    this.http.put(url, board).subscribe(data => b=data);;
-    return b;
-  }
+  // addNote(id:number, board:Board){
+  //   let b;
+  //   let url=this.url+'/'+id;
+  //   this.http.put(url, board).subscribe(data => b=data);;
+  //   return b;
+  // }
   changeBoard(id:number, board:Board){
     let b;
     let url=this.url+'/'+id;

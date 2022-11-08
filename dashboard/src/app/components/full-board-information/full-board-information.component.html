@@ -5,18 +5,19 @@
 </div>
 
 <div class="flex-container">
-  <div class="item"><h2>To do</h2>
+  <div class="item" cdkDropList [cdkDropListData]="board.todo" [cdkDropListConnectedTo]="[firstList, thirdList]" #secondList="cdkDropList" (cdkDropListDropped)="drop($event, 1)"><h2>To do</h2>
   <div class="do add" (click)="isVisibleForm1=!isVisibleForm1"><b>Add note</b> </div>
   <div class="do" *ngIf="isVisibleForm1"><form [formGroup]="form1" (keyup.enter)="sendToDo()"><textarea formControlName="noteToDo" cols="25" rows="3"></textarea></form></div>
-  <div class="do" *ngFor="let do of board.todo">{{do}}</div>
+  <div class="do" cdkDrag *ngFor="let do of board.todo">{{do}}</div>
 </div>
-  <div class="item"><h2>In progress</h2>
+  <div class="item" cdkDropList [cdkDropListData]="board.progress" [cdkDropListConnectedTo]="[secondList, thirdList]" #firstList="cdkDropList" (cdkDropListDropped)="drop($event, 2)"><h2>In progress</h2>
     <div class="do add" (click)="isVisibleForm2=!isVisibleForm2"><b>Add note</b></div>
     <div class="do" *ngIf="isVisibleForm2"><form [formGroup]="form2" (keyup.enter)="sendProgress()"><textarea formControlName="noteProgress" cols="25" rows="3"></textarea></form></div>
-    <div class="do" *ngFor="let prog of board.progress">{{prog}}</div></div>
-  <div class="item"><h2>Done</h2>
+    <div class="do" cdkDrag *ngFor="let prog of board.progress">{{prog}}</div></div>
+  <div class="item" cdkDropList [cdkDropListData]="board.done" [cdkDropListConnectedTo]="[firstList, secondList]" #thirdList="cdkDropList" (cdkDropListDropped)="drop($event, 3)"><h2>Done</h2>
     <div class="do add" (click)="isVisibleForm3=!isVisibleForm3"><b>Add note</b></div>
     <div class="do" *ngIf="isVisibleForm3"><form [formGroup]="form3" (keyup.enter)="sendDone()"><textarea formControlName="noteDone" cols="25" rows="3"></textarea></form></div>
-    <div class="do" *ngFor="let dn of board.done">{{dn}}</div>
+    <div class="do" cdkDrag *ngFor="let dn of board.done">{{dn}}</div>
   </div>
 </div>
+
