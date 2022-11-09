@@ -13,6 +13,7 @@ import { FilterBoardsPipe } from './pipes/filter-boards.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { FullBoardInformationComponent } from './components/full-board-information/full-board-information.component';
+import { BoardlistComponent } from './components/boardlist/boardlist.component';
 
 const appRoutes:Routes = [{
   path: '', component: LineOfBoardsComponent
@@ -32,7 +33,8 @@ const appRoutes:Routes = [{
     FooterComponent,
     BoardComponent,
     FilterBoardsPipe,
-    FullBoardInformationComponent
+    FullBoardInformationComponent,
+    BoardlistComponent
   ],
   imports: [
     BrowserModule,
