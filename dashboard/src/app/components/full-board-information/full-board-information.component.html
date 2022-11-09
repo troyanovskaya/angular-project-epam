@@ -1,10 +1,14 @@
 <div class="title">
   <h1 class="name">{{board.name}}</h1>
-<p class="description">{{board.description}}</p>
+  <p class="description">{{board.description}}</p>
+  <h3>Play an artist, choose your own color for columns!</h3>
+  <form [formGroup]="form">
+    <input (change)="show()" formControlName="color" type="color" value="#afcab7" />
+  </form>
 </div>
 
 <div class="flex-container">
-<app-boardlist class="col" [arr]="board.todo" [listNum]="1" title="To do" [cdkDropListData]="board.todo" [cdkDropListConnectedTo]="[firstList, thirdList]" #secondList="cdkDropList" cdkDropList (cdkDropListDropped)="drop($event, 1)"></app-boardlist>
-<app-boardlist class="col" [arr]="board.progress" [listNum]="2" title="In progress" [cdkDropListData]="board.progress" [cdkDropListConnectedTo]="[secondList, thirdList]" cdkDropList  #firstList="cdkDropList" (cdkDropListDropped)="drop($event, 2)" ></app-boardlist>
-<app-boardlist class="col" [arr]="board.done" [listNum]="3" title="Done" [doneIcon]="true" [cdkDropListData]="board.done" [cdkDropListConnectedTo]="[firstList, secondList]" cdkDropList  #thirdList="cdkDropList" (cdkDropListDropped)="drop($event, 3)" ></app-boardlist>
+<app-boardlist [style.background-color]="form.controls.color.value" class="col" [arr]="board.todo" [listNum]="1" title="To do" [cdkDropListData]="board.todo" [cdkDropListConnectedTo]="[firstList, thirdList]" #secondList="cdkDropList" cdkDropList (cdkDropListDropped)="drop($event, 1)"></app-boardlist>
+<app-boardlist [style.background-color]="form.controls.color.value" class="col" [arr]="board.progress" [listNum]="2" title="In progress" [cdkDropListData]="board.progress" [cdkDropListConnectedTo]="[secondList, thirdList]" cdkDropList  #firstList="cdkDropList" (cdkDropListDropped)="drop($event, 2)" ></app-boardlist>
+<app-boardlist [style.background-color]="form.controls.color.value" class="col" [arr]="board.done" [listNum]="3" title="Done" [doneIcon]="true" [cdkDropListData]="board.done" [cdkDropListConnectedTo]="[firstList, secondList]" cdkDropList  #thirdList="cdkDropList" (cdkDropListDropped)="drop($event, 3)" ></app-boardlist>
 </div>

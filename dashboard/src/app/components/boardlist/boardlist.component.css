@@ -7,7 +7,7 @@
   flex-direction: column;
   min-height:200px;
   width:100%;
-  background-color: #afcab7;
+  /* background-color: #afcab7; */
 }
 .do{
   border:1px solid white;

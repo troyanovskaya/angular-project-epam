@@ -15,8 +15,14 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from
 export class FullBoardInformationComponent implements OnInit {
   board:Board={id:0, name:'', description:'', date:'', todo:[], progress:[], done:[]};
   id:number = 0;
+  form: FormGroup = new FormGroup({color: new FormControl<string>('', [
+    Validators.required
+  ])});
   constructor(private route: ActivatedRoute, public db:DbAccessService) { }
-
+  show(){
+    
+    console.log(this.form.controls.color.value);
+  }
   ngOnInit(): void {
     this.route.params
     .subscribe(params => {
