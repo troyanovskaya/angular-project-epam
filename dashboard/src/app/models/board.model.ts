@@ -3,7 +3,7 @@ export interface Board{
   name: string;
   date: string;
   description: string;
-  todo: string[];
-  progress: string[];
-  done: string[]
+  todo: {task: string, comments: string[]}[];
+  progress: {task: string, comments: string[]}[];
+  done: {task: string, comments: string[]}[]
 }

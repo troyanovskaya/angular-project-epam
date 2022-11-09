@@ -20,7 +20,7 @@ export class FullBoardInformationComponent implements OnInit {
   ])});
   constructor(private route: ActivatedRoute, public db:DbAccessService) { }
   show(){
-    
+
     console.log(this.form.controls.color.value);
   }
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class FullBoardInformationComponent implements OnInit {
     );
   }
 
- drop(event: CdkDragDrop<string[]>, listNumber: number) {
+ drop(event: CdkDragDrop<{task: string, comments: string[]}[]>, listNumber: number) {
     if (event.previousContainer !== event.container) {
     transferArrayItem(event.previousContainer.data,event.container.data,
     event.previousIndex, event.currentIndex)

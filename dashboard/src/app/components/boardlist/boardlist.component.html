@@ -13,7 +13,8 @@
     <span (mousedown)="$event.stopPropagation()" contenteditable="true" (keyup.enter)="pushEdited($event, i, listNum)">{{task}}</span>
     <div class="small-flex-container">
       <img *ngIf="doneIcon" class="icon" height="20" width="20" src="assets/check.png" alt="Check icon"/>
-      <img (click)="deleteNote(listNum, task)" class="icon" height="20" width="20" src="assets/delete.png" alt="Delete icon"/>
+      <img class="icon" height="20" width="20" src="assets/bubble-chat.png" alt="Comment icon"/>
+      <img (click)="deleteNote(listNum, task.task)" class="icon" height="20" width="20" src="assets/delete.png" alt="Delete icon"/>
     </div>
   </div>
 </div>
