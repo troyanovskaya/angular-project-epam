@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { FullBoardInformationComponent } from './components/full-board-information/full-board-information.component';
 import { BoardlistComponent } from './components/boardlist/boardlist.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 const appRoutes:Routes = [{
   path: '', component: LineOfBoardsComponent
@@ -34,7 +35,8 @@ const appRoutes:Routes = [{
     BoardComponent,
     FilterBoardsPipe,
     FullBoardInformationComponent,
-    BoardlistComponent
+    BoardlistComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

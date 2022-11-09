@@ -12,3 +12,5 @@
 <app-boardlist [style.background-color]="form.controls.color.value" class="col" [arr]="board.progress" [listNum]="2" title="In progress" [cdkDropListData]="board.progress" [cdkDropListConnectedTo]="[secondList, thirdList]" cdkDropList  #firstList="cdkDropList" (cdkDropListDropped)="drop($event, 2)" ></app-boardlist>
 <app-boardlist [style.background-color]="form.controls.color.value" class="col" [arr]="board.done" [listNum]="3" title="Done" [doneIcon]="true" [cdkDropListData]="board.done" [cdkDropListConnectedTo]="[firstList, secondList]" cdkDropList  #thirdList="cdkDropList" (cdkDropListDropped)="drop($event, 3)" ></app-boardlist>
 </div>
+
+<app-comment class="hidden"></app-comment>

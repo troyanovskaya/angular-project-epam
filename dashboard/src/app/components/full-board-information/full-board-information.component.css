@@ -32,3 +32,8 @@ app-boardlist{
   background-color: #afcab7;
 }
 
+.hidden{
+  display:none;
+}
+
+
