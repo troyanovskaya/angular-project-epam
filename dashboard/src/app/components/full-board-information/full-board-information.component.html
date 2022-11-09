@@ -2,40 +2,9 @@
   <h1 class="name">{{board.name}}</h1>
 <p class="description">{{board.description}}</p>
 </div>
-<app-boardlist></app-boardlist>
 
 <div class="flex-container">
-  <div class="item" cdkDropList [cdkDropListData]="board.todo" [cdkDropListConnectedTo]="[firstList, thirdList]" #secondList="cdkDropList" (cdkDropListDropped)="drop($event, 1)"><h2>To do</h2>
-  <div class="do add" (click)="isVisibleForm1=!isVisibleForm1"><b *ngIf="!isVisibleForm1">Add note</b><b *ngIf="isVisibleForm1">Hide note field</b></div>
-  <div class="do" *ngIf="isVisibleForm1"><form [formGroup]="form1" (keyup.enter)="sendToDo()"><textarea formControlName="noteToDo" cols="25" rows="3"></textarea></form></div>
-  <div class="do" cdkDrag *ngFor="let do of board.todo; index as i">
-    <span (mousedown)="$event.stopPropagation()" contenteditable="true" (keyup.enter)="pushEdited($event, i, 1)">{{do}}</span>
-    <div class="small-flex-container">
-      <img (click)="deleteNote(1, do)" class="icon" height="20" width="20" src="assets/delete.png" alt="Delete icon"/>
-    </div>
-
-    <!-- <img (click)="editeNote()" class="icon" height="20" width="20" src="assets/edit.png" alt="Edit icon"/> -->
-  </div>
+<app-boardlist class="col" [arr]="board.todo" [listNum]="1" title="To do" [cdkDropListData]="board.todo" [cdkDropListConnectedTo]="[firstList, thirdList]" #secondList="cdkDropList" cdkDropList (cdkDropListDropped)="drop($event, 1)"></app-boardlist>
+<app-boardlist class="col" [arr]="board.progress" [listNum]="2" title="In progress" [cdkDropListData]="board.progress" [cdkDropListConnectedTo]="[secondList, thirdList]" cdkDropList  #firstList="cdkDropList" (cdkDropListDropped)="drop($event, 2)" ></app-boardlist>
+<app-boardlist class="col" [arr]="board.done" [listNum]="3" title="Done" [doneIcon]="true" [cdkDropListData]="board.done" [cdkDropListConnectedTo]="[firstList, secondList]" cdkDropList  #thirdList="cdkDropList" (cdkDropListDropped)="drop($event, 3)" ></app-boardlist>
 </div>
-  <div class="item" cdkDropList [cdkDropListData]="board.progress" [cdkDropListConnectedTo]="[secondList, thirdList]" #firstList="cdkDropList" (cdkDropListDropped)="drop($event, 2)"><h2>In progress</h2>
-    <div class="do add" (click)="isVisibleForm2=!isVisibleForm2"><b *ngIf="!isVisibleForm2">Add note</b><b *ngIf="isVisibleForm2">Hide note field</b></div>
-    <div class="do" *ngIf="isVisibleForm2"><form [formGroup]="form2" (keyup.enter)="sendProgress()"><textarea formControlName="noteProgress" cols="25" rows="3"></textarea></form></div>
-    <div class="do"cdkDrag *ngFor="let prog of board.progress; index as i">
-      <span (mousedown)="$event.stopPropagation()" contenteditable="true" (keyup.enter)="pushEdited($event, i, 2)">{{prog}}</span>
-      <div class="small-flex-container">
-      <img (click)="deleteNote(2, prog)" class="icon" height="20" width="20" src="assets/delete.png" alt="Delete icon"/>
-    </div></div></div>
-  <div class="item" cdkDropList [cdkDropListData]="board.done" [cdkDropListConnectedTo]="[firstList, secondList]" #thirdList="cdkDropList" (cdkDropListDropped)="drop($event, 3)"><h2>Done</h2>
-    <div class="do add" (click)="isVisibleForm3=!isVisibleForm3"><b *ngIf="!isVisibleForm3">Add note</b><b *ngIf="isVisibleForm3">Hide note field</b></div>
-    <div class="do" *ngIf="isVisibleForm3"><form [formGroup]="form3" (keyup.enter)="sendDone()"><textarea formControlName="noteDone" cols="25" rows="3"></textarea></form></div>
-    <div class="do"cdkDrag *ngFor="let dn of board.done; index as i">
-      <span (mousedown)="$event.stopPropagation()" contenteditable="true" (keyup.enter)="pushEdited($event, i, 3)">{{dn}}</span>
-      <div class="small-flex-container">
-        <img class="icon" height="20" width="20" src="assets/check.png" alt="Check icon"/>
-      <img (click)="deleteNote(3, dn)" class="icon" height="20" width="20" src="assets/delete.png" alt="Delete icon"/>
-    </div></div>
-  </div>
-</div>
-
-<!-- <p contenteditable="true" (keyup.enter)="pushEdited($event, 1)">{{edit}}</p> -->
-

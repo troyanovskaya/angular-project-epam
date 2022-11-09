@@ -7,31 +7,8 @@
   justify-content: center;
   color:white;
 }
-
-.item{
-  min-height:200px;
+.col{
   width:30%;
-  background-color: #afcab7;
-}
-
-.do{
-  border:1px solid white;
-  min-height:50px;
-  align-self: middle;
-  width:100%;
-  word-wrap: break-word;
-  padding-top: 10px;
-}
-
-.do textarea{
-  width:80%;
-  margin-bottom: 7px;
-}
-
-b{
-  background-color: #60a77b;
-  border-radius: 5px;
-  font-size: 1.2em;
 }
 
 .name, .description{
@@ -49,27 +26,5 @@ b{
   margin-right: auto;
   text-align: center;
   border-radius: 10px;
-}
-
-.row{
-  display:flex;
-  flex-direction: row;
-}
-
-.small-flex-container{
-  display:flex;
-  flex-direction:row;
-  justify-content: flex-end;
-  padding:10px;
-}
-
-.icon{
-  margin-top:10px;
-  margin-right:10px;
-  transition: .2s;
-}
-
-.icon:hover{
-  transform: scale(1.1);
 }
 

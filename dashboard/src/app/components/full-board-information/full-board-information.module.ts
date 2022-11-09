@@ -3,11 +3,11 @@ import { NgModule } from "@angular/core";
 import { FullBoardInformationComponent } from "./full-board-information.component";
 
 @NgModule({
-  declarations: [FullBoardInformationComponent],
+  //declarations: [FullBoardInformationComponent],
   imports: [CommonModule],
   providers: []
 })
 
 export class FullBoardInformationModule{
-  
+
 }
