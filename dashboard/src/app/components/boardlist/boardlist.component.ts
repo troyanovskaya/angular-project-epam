@@ -1,5 +1,5 @@
 import { CdkDragDrop, transferArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Board } from 'src/app/models/board.model';
@@ -16,6 +16,7 @@ board:Board={id:0, name:'', description:'', date:'', todo:[], progress:[], done:
 @Input() listNum: number;
 @Input() title: string = '';
 @Input() doneIcon: boolean = false;
+@Output() emiter = new EventEmitter<number[]>();
 isVisibleForm:boolean = false;
 id:number = 0;
 
@@ -29,17 +30,17 @@ id:number = 0;
     if(this.form.controls.note.value.trim().length > 0){
       switch(this.listNum){
         case 1:
-          this.board.todo.push(this.form.controls.note.value.slice(0, -1));
+          this.board.todo.push({task:this.form.controls.note.value.slice(0, -1), comments:[]});
           break;
         case 2:
-          this.board.progress.push(this.form.controls.note.value.slice(0, -1));
+          this.board.progress.push({task:this.form.controls.note.value.slice(0, -1), comments:[]});
           break;
         case 3:
-          this.board.done.push(this.form.controls.note.value.slice(0, -1));
+          this.board.done.push({task:this.form.controls.note.value.slice(0, -1), comments:[]});
           break;
 
       }
-      this.arr.push(this.form.controls.note.value.slice(0, -1));
+      this.arr.push({task:this.form.controls.note.value.slice(0, -1), comments:[]});
       this.db.changeBoard(this.id, this.board);
       this.form.reset();
     }
@@ -74,19 +75,24 @@ id:number = 0;
     pushEdited(event, i: number, listNumber:number){
       let text = event.target.innerText;
       text = text.trim();
-      this.arr[i] = text;
+      this.arr[i].task = text;
       switch(listNumber){
         case 1:
-          this.board.todo[i] = text;
+          this.board.todo[i].task = text;
           break;
         case 2:
-          this.board.progress[i] = text;
+          this.board.progress[i].task = text;
           break;
         case 3:
-          this.board.done[i] = text;
+          this.board.done[i].task = text;
       }
       this.db.changeBoard(this.id, this.board);
-      console.log(text);
     }
+
+    comment(index:number){
+      console.log(index);
+      this.emiter.emit([this.listNum, index]);
+    }
+
 
 }

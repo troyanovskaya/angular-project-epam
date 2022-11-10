@@ -2,174 +2,33 @@
   "Boards": [
     {
       "id": 1,
-      "name": "Cheese is cool)))",
-      "date": "29-05-2022",
-      "description": "Project about different types of cheese",
+      "name": "ASDFCG",
+      "date": "10-11-2022",
+      "description": "ASDXFC",
       "todo": [
-        "Love me",
-        "Op\ntion3",
-        "Option3",
-        "Option"
+        {
+          "task": "wdecfvew23ewdf",
+          "comments": [
+            "Er"
+          ]
+        }
       ],
       "progress": [
-        "Option2",
-        "Option2",
-        "Option4",
-        "Hello)"
+        {
+          "task": "hhhhh",
+          "comments": [
+            "fghj"
+          ]
+        }
       ],
       "done": [
-        "Option2",
-        "Option3",
-        "Option4",
-        "Love"
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Cheese project6",
-      "date": "29-07-2002",
-      "description": "Project about different types of cheese",
-      "todo": [
-        "Homework",
-        "Option2",
-        "Option3",
-        "Option4"
-      ],
-      "progress": [
-        "Option4"
-      ],
-      "done": [
-        "Option4",
-        "Option3",
-        "Option3"
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Cheese project6",
-      "date": "29-05-2022",
-      "description": "Project abot different types of cheese",
-      "todo": [
-        "Option1",
-        "Option2",
-        "Option3",
-        "Option4"
-      ],
-      "progress": [
-        "Option1",
-        "Option2",
-        "Option3",
-        "Option4"
-      ],
-      "done": [
-        "Option1",
-        "Option2",
-        "Option3",
-        "Option4"
-      ]
-    },
-    {
-      "id": 4,
-      "name": "Cheese project7",
-      "date": "29-04-2022",
-      "description": "Project abot different types of cheese",
-      "todo": [
-        "Option1",
-        "Option2",
-        "Option3",
-        "Option4"
-      ],
-      "progress": [
-        "Option1",
-        "Option2",
-        "Option3",
-        "Option4"
-      ],
-      "done": [
-        "Option1",
-        "Option2",
-        "Option3",
-        "Option4"
-      ]
-    },
-    {
-      "name": "angular",
-      "date": "05-11-2022",
-      "description": "Project",
-      "todo": [
-        "Hi)"
-      ],
-      "progress": [],
-      "done": [],
-      "id": 5
-    },
-    {
-      "id": 6,
-      "name": "ppppp",
-      "date": "05-11-2022",
-      "description": "ppppp",
-      "todo": [],
-      "progress": [],
-      "done": []
-    },
-    {
-      "id": 7,
-      "name": "iiiii",
-      "date": "05-11-2022",
-      "description": "iiiii",
-      "todo": [
-        "ghj"
-      ],
-      "progress": [
-        "xghjkl;"
-      ],
-      "done": [
-        "hjkl"
-      ]
-    },
-    {
-      "id": 8,
-      "name": "dfghjkl",
-      "date": "05-11-2022",
-      "description": "dfghjkl",
-      "todo": [],
-      "progress": [],
-      "done": []
-    },
-    {
-      "id": 9,
-      "name": "Zig-zag",
-      "date": "07-11-2022",
-      "description": "Zuk-zuk",
-      "todo": [],
-      "progress": [],
-      "done": []
-    },
-    {
-      "id": 10,
-      "name": "asasas",
-      "date": "09-11-2022",
-      "description": "fghjkl;lkjh",
-      "todo": [],
-      "progress": [],
-      "done": []
-    },
-    {
-      "id": 11,
-      "name": "Link)",
-      "date": "09-11-2022",
-      "description": "wedfe2e",
-      "todo": [
-        "Mimo was beloved child",
-        "ewfcd"
-      ],
-      "progress": [
-        "edfvdf",
-        "werf"
-      ],
-      "done": [
-        "rfgv",
-        "Mimo"
+        {
+          "task": "wdecfvew23ewdf",
+          "comments": [
+            "Love ",
+            "Xmmm"
+          ]
+        }
       ]
     }
   ]

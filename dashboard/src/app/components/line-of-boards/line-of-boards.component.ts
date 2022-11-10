@@ -33,9 +33,15 @@ export class LineOfBoardsComponent implements OnInit{
     // this.boards.sort(el => )
   }
   addBoard(){
-    this.db.postBoard({"id": this.db.boards[this.db.boards.length-1].id+1, "name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value, todo:[], progress:[], done:[]}).subscribe
-    (res => this.db.assignValue());
+    if(this.db.boards.length-1>=0){
+      this.db.postBoard({"id": this.db.boards[this.db.boards.length-1].id+1, "name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value, todo:[], progress:[], done:[]}).subscribe
+      (res => this.db.assignValue());
+    } else{
+      this.db.postBoard({"id": 1, "name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value, todo:[], progress:[], done:[]}).subscribe
+      (res => this.db.assignValue());
+    }
     this.form.reset();
+
 
   }
   getProperDate():string{

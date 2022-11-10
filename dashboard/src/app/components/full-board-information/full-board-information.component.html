@@ -8,9 +8,9 @@
 </div>
 
 <div class="flex-container">
-<app-boardlist [style.background-color]="form.controls.color.value" class="col" [arr]="board.todo" [listNum]="1" title="To do" [cdkDropListData]="board.todo" [cdkDropListConnectedTo]="[firstList, thirdList]" #secondList="cdkDropList" cdkDropList (cdkDropListDropped)="drop($event, 1)"></app-boardlist>
-<app-boardlist [style.background-color]="form.controls.color.value" class="col" [arr]="board.progress" [listNum]="2" title="In progress" [cdkDropListData]="board.progress" [cdkDropListConnectedTo]="[secondList, thirdList]" cdkDropList  #firstList="cdkDropList" (cdkDropListDropped)="drop($event, 2)" ></app-boardlist>
-<app-boardlist [style.background-color]="form.controls.color.value" class="col" [arr]="board.done" [listNum]="3" title="Done" [doneIcon]="true" [cdkDropListData]="board.done" [cdkDropListConnectedTo]="[firstList, secondList]" cdkDropList  #thirdList="cdkDropList" (cdkDropListDropped)="drop($event, 3)" ></app-boardlist>
+<app-boardlist (emiter)="showComents($event)" [style.background-color]="form.controls.color.value" class="col" [arr]="board.todo" [listNum]="1" title="To do" [cdkDropListData]="board.todo" [cdkDropListConnectedTo]="[firstList, thirdList]" #secondList="cdkDropList" cdkDropList (cdkDropListDropped)="drop($event, 1)"></app-boardlist>
+<app-boardlist (emiter)="showComents($event)" [style.background-color]="form.controls.color.value" class="col" [arr]="board.progress" [listNum]="2" title="In progress" [cdkDropListData]="board.progress" [cdkDropListConnectedTo]="[secondList, thirdList]" cdkDropList  #firstList="cdkDropList" (cdkDropListDropped)="drop($event, 2)" ></app-boardlist>
+<app-boardlist (emiter)="showComents($event)" [style.background-color]="form.controls.color.value" class="col" [arr]="board.done" [listNum]="3" title="Done" [doneIcon]="true" [cdkDropListData]="board.done" [cdkDropListConnectedTo]="[firstList, secondList]" cdkDropList  #thirdList="cdkDropList" (cdkDropListDropped)="drop($event, 3)" ></app-boardlist>
 </div>
 
-<app-comment class="hidden"></app-comment>
+<app-comment *ngIf="visible.visible | async" [emiter]="em" [board]="board"></app-comment>

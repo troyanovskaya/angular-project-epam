@@ -1,7 +1,7 @@
-<div class="comment-container"></div>
+<div class="comment-container" (click)="visible.close()"></div>
 <div class="comment">
   <h3 class="item">Task name</h3>
-  <input placeholder="Add new comment" class="item" type="text">
+  <input (keyup.enter)="addCom($event)" placeholder="Add new comment" class="item" type="text">
   <div *ngFor="let com of comments">
     <p>{{com}}</p>
     <div class="small-flex-container">

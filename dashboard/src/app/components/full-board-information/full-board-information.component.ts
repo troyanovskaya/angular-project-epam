@@ -5,6 +5,7 @@ import { DbAccessService } from 'src/app/services/db-access.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from
 '@angular/cdk/drag-drop'
+import { VisibilityCommentsService } from 'src/app/services/visibility-comments.service';
 
 
 @Component({
@@ -15,10 +16,12 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from
 export class FullBoardInformationComponent implements OnInit {
   board:Board={id:0, name:'', description:'', date:'', todo:[], progress:[], done:[]};
   id:number = 0;
+  em:number[] = [];
+  showCom:boolean = true;
   form: FormGroup = new FormGroup({color: new FormControl<string>('', [
     Validators.required
   ])});
-  constructor(private route: ActivatedRoute, public db:DbAccessService) { }
+  constructor(private route: ActivatedRoute, public db:DbAccessService, public visible:VisibilityCommentsService) { }
   show(){
 
     console.log(this.form.controls.color.value);
@@ -49,6 +52,15 @@ export class FullBoardInformationComponent implements OnInit {
       }
       }
       this.db.changeBoard(this.board.id, this.board);
+
+    }
+
+    showComents(event){
+      this.showCom = false;
+      this.em = event;
+      this.visible.open();
+      // console.log(this.emiter);
+
     }
  }
 
