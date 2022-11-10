@@ -9,8 +9,13 @@
       <textarea formControlName="note" cols="25" rows="3"></textarea>
     </form>
   </div>
-  <div class="do" cdkDrag *ngFor="let task of arr; index as i">
-    <span (mousedown)="$event.stopPropagation()" contenteditable="true" (keyup.enter)="pushEdited($event, i, listNum)">{{task.task}}</span>
+  <div class="do" cdkDrag *ngFor="let task of arr |filterTasks:keyword.key; index as i">
+    <span
+      (mousedown)="$event.stopPropagation()"
+      contenteditable="true"
+      (keyup.enter)="pushEdited($event, i, listNum)">
+      {{task.task}}
+    </span>
     <div class="small-flex-container">
       <img *ngIf="doneIcon" class="icon" height="20" width="20" src="assets/check.png" alt="Check icon"/>
       <img (click)="comment(i)" class="icon" height="20" width="20" src="assets/bubble-chat.png" alt="Comment icon"/>

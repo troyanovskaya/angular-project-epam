@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from
 '@angular/cdk/drag-drop'
 import { VisibilityCommentsService } from 'src/app/services/visibility-comments.service';
+import { KeywordService } from 'src/app/services/keyword.service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class FullBoardInformationComponent implements OnInit {
   form: FormGroup = new FormGroup({color: new FormControl<string>('', [
     Validators.required
   ])});
-  constructor(private route: ActivatedRoute, public db:DbAccessService, public visible:VisibilityCommentsService) { }
+  constructor(private route: ActivatedRoute, public db:DbAccessService, public visible:VisibilityCommentsService, public keyword: KeywordService) { }
   show(){
 
     console.log(this.form.controls.color.value);
@@ -36,7 +37,8 @@ export class FullBoardInformationComponent implements OnInit {
   }
 
  drop(event: CdkDragDrop<{task: string, comments: string[]}[]>, listNumber: number) {
-    if (event.previousContainer !== event.container) {
+  console.log('!!!')
+  if (event.previousContainer !== event.container) {
     transferArrayItem(event.previousContainer.data,event.container.data,
     event.previousIndex, event.currentIndex)
     } else {

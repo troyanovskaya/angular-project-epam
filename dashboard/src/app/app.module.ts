@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BoardComponent } from './components/board/board.component';
 import { FilterBoardsPipe } from './pipes/filter-boards.pipe';
+import { FilterTasksPipe } from './pipes/filter-tasks.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { FullBoardInformationComponent } from './components/full-board-information/full-board-information.component';
@@ -34,6 +35,7 @@ const appRoutes:Routes = [{
     FooterComponent,
     BoardComponent,
     FilterBoardsPipe,
+    FilterTasksPipe,
     FullBoardInformationComponent,
     BoardlistComponent,
     CommentComponent

@@ -4,6 +4,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Board } from 'src/app/models/board.model';
 import { DbAccessService } from 'src/app/services/db-access.service';
+import { KeywordService } from 'src/app/services/keyword.service';
+import { FilterTasksPipe } from 'src/app/pipes/filter-tasks.pipe';
 
 @Component({
   selector: 'app-boardlist',
@@ -23,9 +25,6 @@ id:number = 0;
   form: FormGroup = new FormGroup({note: new FormControl<string>('', [
     Validators.required
   ])});
-  showBoard(){
-    console.log(this.board);
-  }
   sendNote(){
     if(this.form.controls.note.value.trim().length > 0){
       switch(this.listNum){
@@ -38,7 +37,6 @@ id:number = 0;
         case 3:
           this.board.done.push({task:this.form.controls.note.value.slice(0, -1), comments:[]});
           break;
-
       }
       this.arr.push({task:this.form.controls.note.value.slice(0, -1), comments:[]});
       this.db.changeBoard(this.id, this.board);
@@ -46,7 +44,7 @@ id:number = 0;
       this.form.reset();
     }
   }
-  constructor(private route: ActivatedRoute, public db:DbAccessService) { }
+  constructor(private route: ActivatedRoute, public db:DbAccessService, public keyword:KeywordService) { }
 
   ngOnInit(): void {
     this.route.params
@@ -77,7 +75,7 @@ id:number = 0;
     pushEdited(event, i: number, listNumber:number){
       let text = event.target.innerText;
       text = text.trim();
-      this.arr[i].task = text;
+      this.arr[i] = {task: text, comments:this.arr[i].comments};
       switch(listNumber){
         case 1:
           this.board.todo[i].task = text;
@@ -89,6 +87,7 @@ id:number = 0;
           this.board.done[i].task = text;
       }
       this.db.changeBoard(this.id, this.board);
+      this.db.assignValue();
     }
 
     comment(index:number){
