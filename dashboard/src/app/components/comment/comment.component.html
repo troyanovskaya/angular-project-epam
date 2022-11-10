@@ -2,10 +2,10 @@
 <div class="comment">
   <h3 class="item">Task name</h3>
   <input (keyup.enter)="addCom($event)" placeholder="Add new comment" class="item" type="text">
-  <div *ngFor="let com of comments">
+  <div *ngFor="let com of comments; index as i">
     <p>{{com}}</p>
     <div class="small-flex-container">
-      <img class="icon" height="20" width="20" src="assets/delete.png" alt="Delete icon"/>
+      <img (click)="deleteComment(com)" class="icon" height="20" width="20" src="assets/delete.png" alt="Delete icon"/>
     </div>
   </div>
 </div>

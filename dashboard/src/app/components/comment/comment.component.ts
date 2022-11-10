@@ -13,6 +13,22 @@ export class CommentComponent implements OnInit {
   @Input() emiter: number[];
   comments:string[] = [];
   public comInput: string = '';
+
+  deleteComment(com:string){
+    switch(this.emiter[0]){
+      case 1:
+        this.board.todo[this.emiter[1]].comments = this.board.todo[this.emiter[1]].comments.filter(str => str!=com);
+        break;
+      case 2:
+        this.board.progress[this.emiter[1]].comments = this.board.todo[this.emiter[1]].comments.filter(str => str!=com);
+        break;
+      case 3:
+        this.board.done[this.emiter[1]].comments = this.board.todo[this.emiter[1]].comments.filter(str => str!=com);
+        break;
+    }
+    this.comments = this.comments.filter(str => str!=com);
+    this.db.changeBoard(this.board.id, this.board);
+  }
   addCom(event){
     console.log(this.board);
     this.comments.push(event.target.value);
@@ -27,8 +43,8 @@ export class CommentComponent implements OnInit {
         this.board.done[this.emiter[1]].comments = this.comments;
         break;
     }
-    console.log(this.emiter);
-    this.db.changeBoard(this.board.id, this.board)
+    this.db.changeBoard(this.board.id, this.board);
+    event.target.value='';
   }
   constructor(public db:DbAccessService, public visible:VisibilityCommentsService) { }
 
