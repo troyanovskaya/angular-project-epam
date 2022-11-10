@@ -68,9 +68,4 @@ export class LineOfBoardsComponent implements OnInit{
   ngOnInit(): void {
   }
 
-  // q(){
-  //   console.log(this.db.boards);
-  //   console.log(this.boards);
-  // }
-
 }

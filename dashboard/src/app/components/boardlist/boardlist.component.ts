@@ -42,6 +42,7 @@ id:number = 0;
       }
       this.arr.push({task:this.form.controls.note.value.slice(0, -1), comments:[]});
       this.db.changeBoard(this.id, this.board);
+      this.db.assignValue();
       this.form.reset();
     }
   }
@@ -70,6 +71,7 @@ id:number = 0;
         this.arr = this.board.done;
       }
       this.db.changeBoard(this.board.id, this.board);
+      this.db.assignValue();
     }
 
     pushEdited(event, i: number, listNumber:number){
