@@ -30,21 +30,23 @@ export class CommentComponent implements OnInit {
     this.db.changeBoard(this.board.id, this.board);
   }
   addCom(event){
-    console.log(this.board);
-    this.comments.push(event.target.value);
-    switch(this.emiter[0]){
-      case 1:
-        this.board.todo[this.emiter[1]].comments = this.comments;
-        break;
-      case 2:
-        this.board.progress[this.emiter[1]].comments = this.comments;
-        break;
-      case 3:
-        this.board.done[this.emiter[1]].comments = this.comments;
-        break;
+    if(event.target.value){
+      this.comments.push(event.target.value);
+      switch(this.emiter[0]){
+        case 1:
+          this.board.todo[this.emiter[1]].comments = this.comments;
+          break;
+        case 2:
+          this.board.progress[this.emiter[1]].comments = this.comments;
+          break;
+        case 3:
+          this.board.done[this.emiter[1]].comments = this.comments;
+          break;
+      }
+      this.db.changeBoard(this.board.id, this.board);
+      event.target.value='';
     }
-    this.db.changeBoard(this.board.id, this.board);
-    event.target.value='';
+
   }
   constructor(public db:DbAccessService, public visible:VisibilityCommentsService) { }
 

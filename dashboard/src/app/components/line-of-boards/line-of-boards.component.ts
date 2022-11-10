@@ -29,19 +29,20 @@ export class LineOfBoardsComponent implements OnInit{
 
   boardName='';
   boardDescription='';
-  sortASC(){
-    // this.boards.sort(el => )
-  }
   addBoard(){
-    if(this.db.boards.length-1>=0){
-      this.db.postBoard({"id": this.db.boards[this.db.boards.length-1].id+1, "name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value, todo:[], progress:[], done:[]}).subscribe
-      (res => this.db.assignValue());
-    } else{
-      this.db.postBoard({"id": 1, "name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value, todo:[], progress:[], done:[]}).subscribe
-      (res => this.db.assignValue());
+    console.log(this.form.controls.name.value.length>=5);
+    console.log(this.form.controls.description.value.length>=5);
+    if(this.form.controls.name.value.length>=5 && this.form.controls.description.value.length>=5){
+      console.log('q');
+      if(this.db.boards.length-1>=0){
+        this.db.postBoard({"id": this.db.boards[this.db.boards.length-1].id+1, "name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value, todo:[], progress:[], done:[]}).subscribe
+        (res => this.db.assignValue());
+      } else{
+        this.db.postBoard({"id": 1, "name": this.form.controls.name.value, "date": this.getProperDate(), "description" :this.form.controls.description.value, todo:[], progress:[], done:[]}).subscribe
+        (res => this.db.assignValue());
+      }
+      this.form.reset();
     }
-    this.form.reset();
-
 
   }
   getProperDate():string{

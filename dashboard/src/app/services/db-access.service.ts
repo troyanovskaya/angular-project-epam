@@ -27,7 +27,7 @@ export class DbAccessService{
   changeBoard(id:number, board:Board){
     let b;
     let url=this.url+'/'+id;
-    this.http.put(url, board).subscribe(data => b=data);;
+    this.http.put(url, board).subscribe(data => {this.assignValue()});
     return b;
   }
   deleteBoard(id:number){

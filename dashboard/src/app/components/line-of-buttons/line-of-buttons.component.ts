@@ -118,7 +118,7 @@ export class LineOfButtonsComponent {
           this.buttonChoose1 ? this.sortASCByDoneNumber():this.sortDESCByDoneNumber();
           break;
         default:
-          console.log(`Sorry, none`);
+          this.db.getBoards().subscribe(res => this.db.boards = res);
       }
     }
     this.downDropHidden = true;

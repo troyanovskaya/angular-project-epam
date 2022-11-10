@@ -13,7 +13,7 @@ import { FilterTasksPipe } from 'src/app/pipes/filter-tasks.pipe';
   styleUrls: ['./boardlist.component.css']
 })
 export class BoardlistComponent implements OnInit {
-board:Board={id:0, name:'', description:'', date:'', todo:[], progress:[], done:[]};
+board:Board={id:0, name:'', description:'', date:'', todo:[{task:'', comments: []}], progress:[{task:'', comments: []}], done:[{task:'', comments: []}]};
 @Input() arr: {task: string, comments: string[]}[];
 @Input() listNum: number;
 @Input() title: string = '';
@@ -21,26 +21,33 @@ board:Board={id:0, name:'', description:'', date:'', todo:[], progress:[], done:
 @Output() emiter = new EventEmitter<number[]>();
 isVisibleForm:boolean = false;
 id:number = 0;
-
-  form: FormGroup = new FormGroup({note: new FormControl<string>('', [
+form: FormGroup = new FormGroup({note: new FormControl<string>('', [
     Validators.required
-  ])});
+])});
   sendNote(){
     if(this.form.controls.note.value.trim().length > 0){
+      this.arr.push({task:this.form.controls.note.value.slice(0, -1), comments:[]});
       switch(this.listNum){
         case 1:
-          this.board.todo.push({task:this.form.controls.note.value.slice(0, -1), comments:[]});
+          this.db.getBoard(this.id).subscribe(res => {this.board=res;
+          this.board.todo = this.arr;
+          this.db.changeBoard(this.board.id, this.board);
+          });
           break;
         case 2:
-          this.board.progress.push({task:this.form.controls.note.value.slice(0, -1), comments:[]});
-          break;
+          this.db.getBoard(this.id).subscribe(res => {this.board=res;
+            this.board.progress= this.arr;
+            this.db.changeBoard(this.board.id, this.board);
+            });
+            break;
         case 3:
-          this.board.done.push({task:this.form.controls.note.value.slice(0, -1), comments:[]});
-          break;
+          this.db.getBoard(this.id).subscribe(res => {this.board=res;
+            this.board.done= this.arr;
+            this.db.changeBoard(this.board.id, this.board);
+            });
+            break;
       }
-      this.arr.push({task:this.form.controls.note.value.slice(0, -1), comments:[]});
-      this.db.changeBoard(this.id, this.board);
-      this.db.assignValue();
+      this.db.changeBoard(this.board.id, this.board);
       this.form.reset();
     }
   }
@@ -54,22 +61,29 @@ id:number = 0;
     }
     );
   }
-  deleteNote(listNumber: number, el: string){
+  deleteNote(listNumber: number, el: string, i:number){
+    this.arr = this.arr.filter((res, ind)=>i!=ind);
     switch (listNumber){
       case 1:
-        this.board.todo = this.board.todo.filter(member => member.task!=el);
-        this.arr = this.board.todo;
+        this.db.getBoard(this.id).subscribe(res => {this.board=res;
+          this.board.todo = this.arr;
+          this.db.changeBoard(this.board.id, this.board);
+        });
         break;
       case 2:
-        this.board.progress = this.board.progress.filter(member => member.task!=el);
-        this.arr = this.board.progress;
+        this.db.getBoard(this.id).subscribe(res => {this.board=res;
+          this.board.progress = this.arr;
+          this.db.changeBoard(this.board.id, this.board);
+        });
         break;
       case 3:
-        this.board.done = this.board.done.filter(member => member.task!=el);
-        this.arr = this.board.done;
+        this.db.getBoard(this.id).subscribe(res => {this.board=res;
+          this.board.done = this.arr;
+          this.db.changeBoard(this.board.id, this.board);
+        });
+        break;
       }
       this.db.changeBoard(this.board.id, this.board);
-      this.db.assignValue();
     }
 
     pushEdited(event, i: number, listNumber:number){
@@ -78,16 +92,24 @@ id:number = 0;
       this.arr[i] = {task: text, comments:this.arr[i].comments};
       switch(listNumber){
         case 1:
-          this.board.todo[i].task = text;
+          this.db.getBoard(this.id).subscribe(res => {this.board=res;
+            this.board.todo[i].task = text;
+            this.db.changeBoard(this.board.id, this.board);
+          });
           break;
         case 2:
-          this.board.progress[i].task = text;
+          this.db.getBoard(this.id).subscribe(res => {this.board=res;
+            this.board.progress[i].task = text;
+            this.db.changeBoard(this.board.id, this.board);
+          });
           break;
         case 3:
-          this.board.done[i].task = text;
+          this.db.getBoard(this.id).subscribe(res => {this.board=res;
+            this.board.done[i].task = text;
+            this.db.changeBoard(this.board.id, this.board);
+          });
+          break;
       }
-      this.db.changeBoard(this.id, this.board);
-      this.db.assignValue();
     }
 
     comment(index:number){

@@ -19,7 +19,7 @@
     <div class="small-flex-container">
       <img *ngIf="doneIcon" class="icon" height="20" width="20" src="assets/check.png" alt="Check icon"/>
       <img (click)="comment(i)" class="icon" height="20" width="20" src="assets/bubble-chat.png" alt="Comment icon"/>
-      <img (click)="deleteNote(listNum, task.task)" class="icon" height="20" width="20" src="assets/delete.png" alt="Delete icon"/>
+      <img (click)="deleteNote(listNum, task.task, i)" class="icon" height="20" width="20" src="assets/delete.png" alt="Delete icon"/>
     </div>
   </div>
 </div>
