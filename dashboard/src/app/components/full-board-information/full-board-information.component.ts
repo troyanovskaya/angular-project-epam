@@ -23,10 +23,6 @@ export class FullBoardInformationComponent implements OnInit {
     Validators.required
   ])});
   constructor(private route: ActivatedRoute, public db:DbAccessService, public visible:VisibilityCommentsService, public keyword: KeywordService) { }
-  show(){
-
-    console.log(this.form.controls.color.value);
-  }
   ngOnInit(): void {
     this.route.params
     .subscribe(params => {
@@ -61,7 +57,6 @@ export class FullBoardInformationComponent implements OnInit {
       this.showCom = false;
       this.em = event;
       this.visible.open();
-      // console.log(this.emiter);
 
     }
  }

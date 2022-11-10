@@ -29,13 +29,13 @@ export class BoardComponent implements OnInit {
   }
 
   deleteBoard(){
-    this.db.deleteBoard(this.db.boards[this.i].id).subscribe(res => res);
-    this.db.boards = this.db.boards.filter(el => el.id!=this.db.boards[this.i].id);
+    this.db.deleteBoard(this.board.id).subscribe(res => res);
+    this.db.assignValue();
   }
 
   editBoard(){
     this.db.disableWhileEditing = true;
-    this.inputName = this.db.boards[this.i].name;
+    this.inputName = this.board.name;
     this.inputVisible = true;
   }
 
@@ -45,9 +45,8 @@ export class BoardComponent implements OnInit {
   sendNewName(){
     this.db.disableWhileEditing = false;
     this.inputVisible = !this.inputVisible;
-    console.log(this.inputName);
-    this.db.boards[this.i].name = this.inputName;
-    this.db.changeBoard(this.db.boards[this.i].id, this.db.boards[this.i]);
+    this.board.name = this.inputName;
+    this.db.changeBoard(this.board.id, this.board);
 
   }
 

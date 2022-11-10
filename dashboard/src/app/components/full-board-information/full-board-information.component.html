@@ -3,7 +3,7 @@
   <p class="description">{{board.description}}</p>
   <h3>Play an artist, choose your own color for columns!</h3>
   <form [formGroup]="form">
-    <input (change)="show()" formControlName="color" type="color" value="#afcab7" />
+    <input formControlName="color" type="color" value="#afcab7" />
   </form>
 </div>
 

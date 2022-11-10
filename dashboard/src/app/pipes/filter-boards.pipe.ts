@@ -7,6 +7,7 @@ import { Board } from '../models/board.model';
 export class FilterBoardsPipe implements PipeTransform {
 
   transform(boards: Board[], search: string): Board[] {
+    console.log(boards.filter(b => b.name.toLowerCase().includes(search.toLowerCase())));
     return boards.filter(b => b.name.toLowerCase().includes(search.toLowerCase()))
   }
 

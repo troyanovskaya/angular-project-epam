@@ -47,18 +47,30 @@
       "name": "Project0",
       "date": "10-11-2022",
       "description": "Project description",
-      "todo": [],
-      "progress": [],
-      "done": []
-    },
-    {
-      "id": 6,
-      "name": "sedrftg",
-      "date": "10-11-2022",
-      "description": "sedrftgy",
-      "todo": [],
-      "progress": [],
-      "done": []
+      "todo": [
+        {
+          "task": "22",
+          "comments": [
+            "2"
+          ]
+        }
+      ],
+      "progress": [
+        {
+          "task": "1",
+          "comments": [
+            "1"
+          ]
+        }
+      ],
+      "done": [
+        {
+          "task": "3",
+          "comments": [
+            "3"
+          ]
+        }
+      ]
     },
     {
       "id": 7,
