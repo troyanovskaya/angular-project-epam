@@ -1,3 +1,5 @@
+To activate server enter npx json-server --watch db.json
+
 # Dashboard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
